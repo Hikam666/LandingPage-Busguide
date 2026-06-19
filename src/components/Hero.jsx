@@ -57,28 +57,31 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ duration: 2, delay: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          color: 'rgba(255,255,255,0.5)',
-          cursor: 'pointer'
-        }}
-        onClick={() => document.getElementById('fitur').scrollIntoView({ behavior: 'smooth' })}
-      >
-        <span style={{ fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase' }}>Scroll</span>
-        <ChevronDown size={24} color="var(--primary)" />
-      </motion.div>
+      <div style={{
+        position: 'absolute',
+        bottom: '2rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 2,
+      }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 10, 0] }}
+          transition={{ duration: 2, delay: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '8px',
+            color: 'rgba(255,255,255,0.5)',
+            cursor: 'pointer'
+          }}
+          onClick={() => document.getElementById('fitur').scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span style={{ fontSize: '0.8rem', letterSpacing: '2px', textTransform: 'uppercase', marginRight: '-2px' }}>Scroll</span>
+          <ChevronDown size={24} color="var(--primary)" />
+        </motion.div>
+      </div>
 
       <style>{`
         @media (max-width: 768px) {
