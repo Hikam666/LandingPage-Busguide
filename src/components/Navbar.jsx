@@ -37,7 +37,7 @@ export default function Navbar() {
           
           {/* Logo */}
           <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#fff', fontWeight: 600, fontSize: '1.25rem', zIndex: 1001 }}>
-            <div style={{ width: '24px', height: '24px', background: 'var(--primary)', borderRadius: '50%', opacity: 0.8 }}></div>
+            <img src="/logo.png" alt="BusGuide Logo" style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }} />
             BusGuide
           </a>
 

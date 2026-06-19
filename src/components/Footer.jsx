@@ -16,7 +16,7 @@ export default function Footer() {
           
           <div style={{ maxWidth: '300px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#fff', fontWeight: 600, fontSize: '1.5rem', marginBottom: '1.25rem' }}>
-              <div style={{ width: '28px', height: '28px', background: 'var(--primary)', borderRadius: '50%' }}></div>
+              <img src="/logo.png" alt="BusGuide Logo" style={{ width: '36px', height: '36px', borderRadius: '50%', objectFit: 'cover' }} />
               BusGuide
             </div>
             <p style={{ lineHeight: 1.8, marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
