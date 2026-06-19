@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #F59E0B; /* Yellow accent */
+  --bg-main: #0b0f19; /* Kept very dark blue, but cards will be #1A2332 */
+  --bg-card: #1A2332;
+  --bg-glass: rgba(15, 23, 42, 0.4);
+  --bg-glass-dark: rgba(0, 0, 0, 0.6);
+  
+  --text-main: #FFFFFF;
+  --text-secondary: #B8C4D0;
+  --text-muted: #8892A0;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  
+  --radius-sm: 12px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+  
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-main);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px; /* Minimum body font size */
+}
+
+/* Links Global Fix */
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+/* The Dribbble Window Layout */
+.app-frame {
+  position: relative;
+  /* Making the window exactly fit the viewport minus margins */
+  height: calc(100vh - 3rem);
+  min-height: 700px;
+  margin: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  /* Cinematic Background */
+  background-image: url('/cinematic_bus_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Smoother transition */
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Dark overlay for hero */
+.app-frame::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.app-frame > * {
+  position: relative;
+  z-index: 2; /* Put content above the overlay */
+}
+
+/* For mobile, remove margin to save space */
+@media (max-width: 768px) {
+  .app-frame {
+    margin: 0;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+}
+
+h1 { 
+  font-size: clamp(2.5rem, 5vw, 4.5rem); 
+  font-weight: 600;
+}
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h3 { font-size: 1.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-white {
+  background-color: #FFFFFF;
+  color: #000;
+}
+
+.btn-white:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(10px);
+}
+
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-glow {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  background-color: var(--primary);
+  color: #000;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--bg-glass-dark);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+/* Feature Card Hover Effect */
+.feature-card:hover {
+  transform: translateY(-4px) !important;
+  border: 1px solid rgba(255,165,0,0.3) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3) !important;
+}
+.feature-card:hover .icon-box {
+  background: var(--primary) !important;
+  color: #000 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Section Spacing */
+section {
+  padding: 80px 0;
+}
+.content-section {
+  background-color: var(--bg-main);
+  padding: 80px 0; /* Consistent spacing */
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Dividers */
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+}
+.section-divider.yellow {
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.5;
+}
+
+/* Sticky Bottom CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--primary);
+  color: #000;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(245, 158, 11, 0.4);
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+.sticky-cta:hover {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 30px rgba(245, 158, 11, 0.6);
+}
